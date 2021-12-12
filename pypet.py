@@ -69,6 +69,8 @@ while not terminate:
         print ("(=^o.o^=)__")
         py_cat['name'] = input()
         print(py_cat['name'] + " learned its new name!")
+    elif user_input == "help":
+        print("You can use the [stats, feed, chat, name, quit, help, sleep] commands to do things with your pypet!")
     elif user_input == "sleep":
         print ("(=^+.+^=)__")
         print ("Zzzzz...")
