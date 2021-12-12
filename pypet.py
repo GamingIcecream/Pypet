@@ -64,6 +64,11 @@ while not terminate:
             print("TOO full... *BURP* ...")
     elif user_input == "chat":
         print (random.choice(py_cat['phrases']))
+    elif user_input == "name":
+        print ("What do you want to name your cat?")
+        print ("(=^o.o^=)__")
+        py_cat['name'] = input()
+        print(py_cat['name'] + " learned its new name!")
     elif user_input == "sleep":
         print ("(=^+.+^=)__")
         print ("Zzzzz...")
