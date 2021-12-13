@@ -139,7 +139,7 @@ while not terminate:
     elif user_input == "sleep":
         print (py_cat['sleep'])
         print ("Zzzzz...")
-        sleep(1)
+        sleep(15)
         print (py_cat['photo'])
         print ("Yawn!!")
         py_cat['hungry'] = True
