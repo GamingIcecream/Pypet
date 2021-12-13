@@ -9,7 +9,8 @@ py_cat = {
     'weight': 5.7,
     'hungry': True,
     'phrases': ["Purrr", "*lick* *lick*", "Meow! Mew!"],
-    'petPhrase': ["Purrrrrr", "*Snuggle *Snuggle", "*lick meeew", "Mew! Mew!", "*mew meow"]
+    'petPhrase': ["Purrrrrr", "*Snuggle *Snuggle", "*lick meeew", "Mew! Mew!", "*mew meow"],
+    'happy': 50
 }
 py_mouse = {
     'photo': '‹:3 )~~~~',
@@ -38,6 +39,7 @@ def pypet_stats():
 
     print (py_cat['name'] + " weighs " + str(py_cat['weight']) + " pounds ")
     print (py_cat['name'] + " is " + str(py_cat['age']) + " years old")
+    print (py_cat['name'] + " has a happiness level of " + str(py_cat['happy']))
 
     if py_cat['hungry']:
         print ("Your pypet is hungry!")
@@ -63,6 +65,7 @@ while not terminate:
           print ("Om Nom Nom")
           py_cat['weight'] = py_cat['weight'] + 1.5
           py_cat['hungry'] = False
+          py_cat['happy'] = 100
         else:
             print(py_cat['full'])
             print("TOO full... *BURP* ...")
@@ -93,6 +96,7 @@ while not terminate:
                 tries = tries + 1
                 print("Nope, thats not it, try again.")
                 guessNum = input()
+                py_cat['happy'] = py_cat['happy'] - 10
                 if guessNum == trueNum:
                     print("You got it! Lets play again later.")
                     py_cat['hungry'] = True
@@ -145,6 +149,7 @@ while not terminate:
         print ("Yawn!!")
         py_cat['hungry'] = True
         sleepNum = sleepNum + 1
+        py_cat['happy'] = py_cat['happy'] - 10
         if sleepNum == 10:
             py_cat['age'] = py_cat['age'] + 1
             sleepNum = 0
@@ -152,8 +157,13 @@ while not terminate:
     elif user_input == "pet":
         print(py_cat['photo'])
         print (random.choice(py_cat['petPhrase']))
+    elif py_cat['happy'] <= 0:
+        print(py_cat['name'] + " is mad.")
+        print(py_cat['name'] + " says, 'FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
+        
     else:
         print ("Sorry, I don't understand")
+    
     
         
 print ("Goodbye!")
