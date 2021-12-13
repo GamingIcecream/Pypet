@@ -8,7 +8,8 @@ py_cat = {
     'age': 1,
     'weight': 5.7,
     'hungry': True,
-    'phrases': ["Purrr", "*lick* *lick*", "Meow! Mew!"]
+    'phrases': ["Purrr", "*lick* *lick*", "Meow! Mew!"],
+    'petPhrase': ["Purrrrrr", "*Snuggle *Snuggle", "*lick meeew", "Mew! Mew!", "*mew meow"]
 }
 py_mouse = {
     'photo': '‹:3 )~~~~',
@@ -148,6 +149,9 @@ while not terminate:
             py_cat['age'] = py_cat['age'] + 1
             sleepNum = 0
             print(py_cat['name'] + " grew up!")
+    elif user_input == "pet":
+        print(py_cat['photo'])
+        print (random.choice(py_cat['petPhrase']))
     else:
         print ("Sorry, I don't understand")
     
