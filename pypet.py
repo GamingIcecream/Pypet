@@ -80,7 +80,7 @@ while not terminate:
         print("You can use the [stats, feed, chat, name, quit, help, sleep, play, view] commands to do things with your pypet!")
     elif user_input == "play":
         print(py_cat['photo'])
-        print("Its time to play! Want to play [guess the number, other]?")
+        print("Its time to play! Want to play [guess the number, quiz]?")
         game = input('> ')
         if game == "guess the number":
             tries = 1
@@ -104,8 +104,24 @@ while not terminate:
                 if tries == 3:
                     print("Your tries are up! The correct answer was: " + trueNum)
                     guessNum = trueNum
-        elif game == "other":
-            print("Coming soon. Lets play later")
+        elif game == "quiz":
+            print("All right! Lets get started. Choose your genre!")
+            print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter (Case Sensitive)")
+            genre = input()
+            points = 0
+            if genre == "Star Wars":
+                print("1st question! Who is the main character in the original star wars trilogy?")
+                print("a.) Luke Skywalker")
+                print("b.) Han Solo")
+                print("c.) Rey (Palpatine?) ")
+                answerQ = input()
+                if answerQ == "Luke Skywalker":
+                    print("You got it!")
+                    points = points + 1
+                elif not answerQ == "Luke SKywalker":
+                    print("That's the wrong answer.")
+
+            
     elif user_input == "view":
         print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████░░░░░░░░")
         print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██▓▓▓▓██░░░░░░")
@@ -144,7 +160,7 @@ while not terminate:
     elif user_input == "sleep":
         print (py_cat['sleep'])
         print ("Zzzzz...")
-        sleep(15)
+        sleep(5)
         print (py_cat['photo'])
         print ("Yawn!!")
         py_cat['hungry'] = True
@@ -165,5 +181,4 @@ while not terminate:
         print ("Sorry, I don't understand")
     
     
-        
-print ("Goodbye!")
+print ("Goodbye!")      
