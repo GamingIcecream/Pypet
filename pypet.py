@@ -69,6 +69,7 @@ while not terminate:
         else:
             print(py_cat['full'])
             print("TOO full... *BURP* ...")
+            py_cat['happy'] = py_cat['happy'] - 5
     elif user_input == "chat":
         print (random.choice(py_cat['phrases']))
     elif user_input == "name":
@@ -109,17 +110,51 @@ while not terminate:
             print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter (Case Sensitive)")
             genre = input()
             points = 0
+            if genre == "Adventure":
+                print("Coming soon.")
+            if genre == "Marvel":
+                print("Coming soon.")
+            if genre == "Harry Potter":
+                print("Coming soon")
+            if genre == "(Case Sensitive)":
+                print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
+                py_cat['happy'] = py_cat['happy'] + 5
             if genre == "Star Wars":
-                print("1st question! Who is the main character in the original star wars trilogy?")
+                print("1st question! Who is the main character in the original star wars trilogy? (Just put the letter. Ex. 'b'. ")
                 print("a.) Luke Skywalker")
                 print("b.) Han Solo")
                 print("c.) Rey (Palpatine?) ")
                 answerQ = input()
-                if answerQ == "Luke Skywalker":
+                if answerQ == "a":
                     print("You got it!")
                     points = points + 1
-                elif not answerQ == "Luke SKywalker":
+                elif not answerQ == "a":
                     print("That's the wrong answer.")
+                print("2nd question! What does the Mandolorian decide to do right after finding the Child.")
+                print("a.) Shoot it")
+                print("b.) Turn it in")
+                print("c.) Take it away and go into hiding. ")
+                answerQ = input()
+                if answerQ == "b":
+                    print("Correct! A point for you.")
+                    points = points + 1
+                elif not answerQ == "b":
+                    print("Oops, that's not right. Moving on.")
+                print("3rd question! What color does Kilo Ren's saber become at the end of the last movie?")
+                print("a.) Red")
+                print("b.) Yellow")
+                print("c.) Green")
+                answerQ = input()
+                if answerQ == "b":
+                    print("Nice job! Points points points.")
+                    points = points + 1
+                elif not answerQ == "b":
+                    print("Oof. That's incorrect.")
+                print("You got " + str(points) + " points!")
+                py_cat['hungry'] = True
+                if points == 3:
+                    py_cat['happy'] = py_cat['happy'] + 30
+
 
             
     elif user_input == "view":
