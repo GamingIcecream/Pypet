@@ -18,7 +18,9 @@ py_mouse = {
     'age': 3,
     'weight': 0.98,
     'hungry': False,
-    'phrases': ["SqueK!", "*nibble *nibble", "*Squeek SQUEEK"]
+    'phrases': ["SqueK!", "*nibble *nibble", "*Squeek SQUEEK"],
+    'sleep': '‹|3 )~~~~',
+    'happy': 100
 }
 # photo = "(=^o.o^=)__"
 # name = "Mochi"
@@ -195,11 +197,12 @@ while not terminate:
     elif user_input == "sleep":
         print (py_cat['sleep'])
         print ("Zzzzz...")
-        sleep(5)
+        sleep(1)
         print (py_cat['photo'])
         print ("Yawn!!")
         py_cat['hungry'] = True
-        sleepNum = sleepNum + 1
+        sleepNum += 1
+        print(sleepNum)
         py_cat['happy'] = py_cat['happy'] - 10
         if sleepNum == 10:
             py_cat['age'] = py_cat['age'] + 1
@@ -208,6 +211,32 @@ while not terminate:
     elif user_input == "pet":
         print(py_cat['photo'])
         print (random.choice(py_cat['petPhrase']))
+    elif user_input == "sudo unfeed":
+        print("You fed your cat poisin. It's now barfing. ")
+        print(py_cat['full'])
+        print("*BARF *Cry *Barf MEOOOOOOOOW ooooowwwww")
+        py_cat['happy'] = py_cat['happy'] - 100
+        py_cat['hungry'] = True
+    elif user_input == "sudo mouse":
+        print("You unlocked Squuek!")
+        print(py_mouse['photo'])
+        print(py_mouse['name'])
+        print(py_mouse['age'])
+        print(py_mouse['weight'])
+    elif user_input == "sudo mouse sleep":
+        print (py_mouse['sleep'])
+        print ("Zzzzz...")
+        sleep(1)
+        print (py_mouse['photo'])
+        print ("Yawn!!")
+        py_mouse['hungry'] = True
+        sleepNum += 1
+        print(sleepNum)
+        py_mouse['happy'] = py_mouse['happy'] - 10
+        if sleepNum == 10:
+            py_mouse['age'] = py_mouse['age'] + 1
+            sleepNum = 0
+            print(py_mouse['name'] + " grew up!")
     elif py_cat['happy'] <= 0:
         print(py_cat['name'] + " is mad.")
         print(py_cat['name'] + " says, 'FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
