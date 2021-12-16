@@ -212,7 +212,7 @@ while not terminate:
         print(py_cat['photo'])
         print (random.choice(py_cat['petPhrase']))
     elif user_input == "sudo unfeed":
-        print("You fed your cat poisin. It's now barfing. ")
+        print("You fed your cat poison. It's now barfing. ")
         print(py_cat['full'])
         print("*BARF *Cry *Barf MEOOOOOOOOW ooooowwwww")
         py_cat['happy'] = py_cat['happy'] - 100
@@ -245,4 +245,4 @@ while not terminate:
         print ("Sorry, I don't understand")
     
     
-print ("Goodbye!")      
+print ("Goodbye!")
