@@ -4,6 +4,9 @@ py_cat = {
     'photo': '(=^●.●^=)__',
     'full': '(=^x.x^=)__',
     'sleep': '(=^+.+^=)__',
+    'angry': '(=^>.<^=)__',
+    'knowing': '(=^o.o^=)__',
+    'zeroage': '[404 not found]',
     'name': 'Mochi',
     'age': 1,
     'weight': 5.7,
@@ -36,8 +39,14 @@ def startup_pypet():
     print (py_cat['photo'])
 
 def pypet_stats():
-
-    print (py_cat['photo'])    
+    if py_cat ['age'] <= 0:
+        print(py_cat["zeroage"])
+    elif py_cat ['happy'] <= 0:
+        print(py_cat['angry'])
+    elif py_cat['happy'] <= 50:
+        print (py_cat['photo'])
+    elif py_cat['happy'] >= 100:
+        print(py_cat['sleep'])   
 
     print (py_cat['name'] + " weighs " + str(py_cat['weight']) + " pounds ")
     print (py_cat['name'] + " is " + str(py_cat['age']) + " years old")
@@ -118,6 +127,21 @@ while not terminate:
                 print("Coming soon.")
             if genre == "Harry Potter":
                 print("Coming soon")
+                print("For experimental usage, type 'xp' below. If you want to go back, just hit [Enter]. ")
+                if input() == "xp":
+                    print("1st question! Who are Harry Potter's Friends?")
+                    print("a.) Ron, Malfoy, Hermione")
+                    print("b.) Ron, Hermione, Harry Potter")
+                    print("c.) Ron, Hermione")
+                    answerQ = input()
+                    if answerQ == "a":
+                        print("You got it!")
+                        points += 1
+                    print("2nd question! How does Harry get his Scar?")
+                    print("a.) Because he just was born w/ it. ")
+                    print("b.) Because Voldemort hit him")
+                    print("c.) b/c He who must not be name cursed him")
+                    
             if genre == "(Case Sensitive)":
                 print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
                 py_cat['happy'] = py_cat['happy'] + 5
@@ -223,6 +247,9 @@ while not terminate:
         print(py_mouse['name'])
         print(py_mouse['age'])
         print(py_mouse['weight'])
+    elif user_input == "meow":
+        print(py_cat["knowing"])
+        print("Hello, human being. Good to know that you can speak to me. MEOW.")
     elif user_input == "sudo mouse sleep":
         print (py_mouse['sleep'])
         print ("Zzzzz...")
@@ -239,8 +266,29 @@ while not terminate:
             print(py_mouse['name'] + " grew up!")
     elif py_cat['happy'] <= 0:
         print(py_cat['name'] + " is mad.")
-        print(py_cat['name'] + " says, 'FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
-        
+        print("FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
+    elif user_input == "sudo debug(happy)":
+        print("//Welcome to the debug console. You are debugging happiness. Set the value of happiness below.")
+        py_cat["happy"] = int(input('>>> '))
+    elif user_input == "sudo debug(age)":
+        print("//Welcome to the debug console. You are debugging age. Set the value of age below.")
+        py_cat['age'] = int(input('>>> '))
+    elif user_input == "sudo debug(weight)":
+        print("//Welcome to the debug console. You are debugging weight. Set the value of weight below.")
+        py_cat['weight'] = int(input('>>> '))
+    elif user_input == "sudo debug()":
+        print("//Welcome to the debug console. Choose a debugging option. [happy, age, weight]")
+        debugOpt = input('>>> ')
+        if debugOpt == "happy":
+            print("//Welcome to the debug console. You are debugging happiness. Set the value of happiness below.")
+            py_cat["happy"] = int(input('>>> '))
+        elif debugOpt == "age":
+            print("//Welcome to the debug console. You are debugging age. Set the value of age below.")
+            py_cat['age'] = int(input('>>> '))
+        elif debugOpt == "weight":
+            print("//Welcome to the debug console. You are debugging weight. Set the value of weight below.")
+            py_cat['weight'] = int(input('>>> '))
+
     else:
         print ("Sorry, I don't understand")
     
