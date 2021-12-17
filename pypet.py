@@ -276,12 +276,12 @@ while not terminate:
     elif user_input == "sudo mouse sleep":
         print (py_mouse['sleep'])
         print ("Zzzzz...")
-        sleep(1)
+        sleep(3)
         print (py_mouse['photo'])
         print ("Yawn!!")
         py_mouse['hungry'] = True
         sleepNum += 1
-        print(sleepNum)
+        # print(sleepNum)
         py_mouse['happy'] = py_mouse['happy'] - 10
         if sleepNum == 10:
             py_mouse['age'] = py_mouse['age'] + 1
