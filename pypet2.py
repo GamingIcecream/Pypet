@@ -1,3 +1,5 @@
+# abandoned; use pypet.py
+
 import random
 from time import sleep
 from multiprocessing import Process
