@@ -45,6 +45,8 @@ def pypet_stats():
         print(py_cat['angry'])
     elif py_cat['happy'] <= 50:
         print (py_cat['photo'])
+    elif py_cat['happy'] <= 99:
+        print(py_cat['photo'])
     elif py_cat['happy'] >= 100:
         print(py_cat['sleep'])   
 
@@ -285,9 +287,6 @@ while not terminate:
             py_mouse['age'] = py_mouse['age'] + 1
             sleepNum = 0
             print(py_mouse['name'] + " grew up!")
-    elif py_cat['happy'] <= 0:
-        print(py_cat['name'] + " is mad.")
-        print("FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
     elif user_input == "sudo debug(happy)":
         print("//Welcome to the debug console. You are debugging happiness. Set the value of happiness below.")
         py_cat["happy"] = int(input('>>> '))
@@ -309,7 +308,9 @@ while not terminate:
         elif debugOpt == "weight":
             print("//Welcome to the debug console. You are debugging weight. Set the value of weight below.")
             py_cat['weight'] = int(input('>>> '))
-
+    elif py_cat['happy'] <= 0:
+        print(py_cat['name'] + " is mad.")
+        print("FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
     else:
         print ("Sorry, I don't understand")
     
