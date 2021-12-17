@@ -137,10 +137,31 @@ while not terminate:
                     if answerQ == "a":
                         print("You got it!")
                         points += 1
+                    elif not answerQ == "a":
+                        print("Oops. That's wrong.")
                     print("2nd question! How does Harry get his Scar?")
                     print("a.) Because he just was born w/ it. ")
                     print("b.) Because Voldemort hit him")
                     print("c.) b/c He who must not be name cursed him")
+                    answerQ = input()
+                    if answerQ == "c":
+                        print("Great! A point for you.")
+                        points += 1
+                    elif not answerQ == "c":
+                        print("Oh well. Too bad. Wrong answer.")
+                    print("3rd and final question. What house is Malfoy put in?")
+                    print("a.) Ravenclaw")
+                    print("b.) Hufflepuff")
+                    print("c.) Slytherin")
+                    answerQ = input()
+                    if answerQ == "c":
+                        print("Amazing! You got a point.")
+                        points += 1
+                    elif not answerQ == "c":
+                        print("You gave it your best shot. Incorrect answer.")
+                    print("You got " + str(points) + " points!")
+                    if points == 3:
+                        py_cat['happy'] = py_cat['happy'] + 30
                     
             if genre == "(Case Sensitive)":
                 print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
