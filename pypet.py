@@ -100,41 +100,41 @@ while not terminate:
             "You can use the [stats, feed, chat, name, quit, help, sleep, play, view] commands to do things with your pypet!")
     elif user_input == "play":
         print(py_cat['photo'])
-        print("Its time to play! Want to play [guess the number, quiz]?")
+        print("Its time to play! Want to play [guess the number (gtm), quiz (q)]?")
         game = input('> ')
-        if game == "guess the number":
+        if game == "guess the number" or "gtm":
             tries = 1
             print("Lets play guess the number!")
-            number = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+            number = random.randrange(1, 10)
             print("I am thinking of a number 1-10. Guess what it is! You have 3 tries.")
-            trueNum = random.choice(number)
             guessNum = input().lower()
-            if guessNum == trueNum:
+            if guessNum == number:
                 print("You got it! Lets play again later.")
                 py_cat['hungry'] = True
-            while not guessNum == trueNum:
+            while not guessNum == number:
                 tries = tries + 1
                 print("Nope, thats not it, try again.")
                 guessNum = input().lower()
                 py_cat['happy'] = py_cat['happy'] - 10
-                if guessNum == trueNum:
+                if guessNum == number:
                     print("You got it! Lets play again later.")
                     py_cat['hungry'] = True
                     py_cat['weight'] = py_cat['weight'] - 0.4
                 if tries == 3:
-                    print("Your tries are up! The correct answer was: " + trueNum)
-                    guessNum = trueNum
-        elif game == "quiz":
+                    print("Your tries are up! The correct answer was: " + number)
+                    py_cat['hungry'] = True
+                    guessNum = number
+        elif game == "quiz" or "q":
             print("All right! Lets get started. Choose your genre!")
             print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter, (Not Case Sensitive)")
-            genre = input().lower().lower()
+            genre = input().lower()
             points = 0
             if genre == "adventure":
                 print("Coming soon.")
             if genre == "marvel":
                 print("Coming soon.")
             if genre == "harry potter":
-                print("Coming soon")
+                print("Coming soon.")
                 print("For experimental usage, type 'xp' below. If you want to go back, just hit [Enter]. ")
                 if input().lower().lower() == "xp":
                     print("1st question! Who are Harry Potter's Friends?")
@@ -173,16 +173,16 @@ while not terminate:
                     if points == 3:
                         py_cat['happy'] = py_cat['happy'] + 30
 
-            if genre == "(Not Case Sensitive)":
+            if genre == "(not case sensitive)":
                 print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
-                py_cat['happy'] = py_cat['happy'] + 5
+                py_cat['happy'] += 5
             if genre == "Star Wars":
                 print(
-                    "1st question! Who is the main character in the original star wars trilogy? (Just put the letter. Ex. 'b'. ")
+                    "1st question! Who is the main character in the original star wars trilogy? (Choose a letter, ex: a, b, or c)")
                 print("a.) Luke Skywalker")
                 print("b.) Han Solo")
-                print("c.) Rey (Palpatine?) ")
-                answerQ = input().lower()
+                print("c.) Rey (Palpatine?)")
+                answerQ = input("Answer: ").lower()
                 if answerQ == "a":
                     print("You got it!")
                     points = points + 1
@@ -192,7 +192,7 @@ while not terminate:
                 print("a.) Shoot it")
                 print("b.) Turn it in")
                 print("c.) Take it away and go into hiding. ")
-                answerQ = input().lower()
+                answerQ = input("Answer: ").lower()
                 if answerQ == "b":
                     print("Correct! A point for you.")
                     points = points + 1
@@ -202,7 +202,7 @@ while not terminate:
                 print("a.) Red")
                 print("b.) Yellow")
                 print("c.) Green")
-                answerQ = input().lower()
+                answerQ = input("Answer: ").lower()
                 if answerQ == "b":
                     print("Nice job! Points points points.")
                     points = points + 1
@@ -212,43 +212,48 @@ while not terminate:
                 py_cat['hungry'] = True
                 if points == 3:
                     py_cat['happy'] = py_cat['happy'] + 30
+            else:
+                print("That isn't a genre.")
 
 
 
     elif user_input == "view":
-        print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████░░░░░░░░")
-        print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██▓▓▓▓██░░░░░░")
-        print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██████▓▓██░░░░░░")
-        print("░░░░░░██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████▓▓▓▓██░░░░")
-        print("░░░░██▒▒▒▒▒▒████████████░░░░░░░░░░████████████████▓▓▓▓██░░░░")
-        print("░░░░██▒▒▒▒▒▒████▓▓▓▓▓▓▓▓██████████▓▓▓▓▓▓▓▓▓▓████████▓▓██░░░░")
-        print("░░██▒▒▓▓▒▒▒▒████▓▓████▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓████▓▓██░░░░")
-        print("░░██▒▒▒▒▓▓██████▓▓████████▓▓▓▓▓▓▒▒▓▓▓▓▒▒▒▒▒▒▓▓▒▒▓▓██████░░░░")
-        print("██▓▓▒▒▒▒▒▒██░░████░░░░██████▓▓▓▓▒▒▒▒▓▓▓▓▒▒▒▒▓▓▒▒▒▒▓▓████░░░░")
-        print("██▒▒▓▓▓▓██░░░░████░░░░░░██████▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒████░░░░")
-        print("██▓▓▒▒▒▒██░░░░████░░░░░░░░████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██████░░░░")
-        print("██▒▒▓▓▓▓██░░░░░░████░░░░░░████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████████░░░░")
-        print("██▓▓▒▒▒▒██░░░░░░██████░░██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████▒▒██░░░░")
-        print("██▓▓▓▓▓▓██░░░░░░░░████████▒▒▒▒▒▒▓▓████▒▒▒▒▒▒▒▒▒▒░░██░░██░░░░")
-        print("██▓▓▒▒▒▒▒▒██░░░░░░████▓▓▓▓▒▒▒▒▓▓████████▒▒░░░░▒▒████░░██████")
-        print("██▒▒▒▒▓▓▓▓▓▓████████▓▓▓▓▒▒▒▒▒▒██▒▒██████▒▒░░░░░░▓▓▓▓░░░░▓▓░░")
-        print("░░██▓▓▓▓▓▓████▒▒▓▓██▒▒▒▒▒▒▒▒░░▒▒░░░░████▒▒░░░░░░░░░░▓▓██████")
-        print("░░██▓▓▓▓██▓▓▓▓▓▓▒▒██▓▓▓▓▓▓▒▒░░░░░░██████░░░░▒▒▒▒░░░░░░▓▓░░░░")
-        print("░░░░████▓▓▓▓▓▓▒▒▒▒██▓▓▒▒▒▒████▒▒░░▓▓▓▓░░░░░░████░░░░░░▓▓░░░░")
-        print("░░░░██▒▒▓▓▓▓▒▒▒▒▓▓▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░▓▓░░░░░░")
-        print("░░██▓▓▒▒▓▓▒▒▒▒▓▓▓▓▒▒▒▒▒▒▒▒▓▓████▓▓░░░░░░░░░░░░░░░░▓▓░░░░░░░░")
-        print("░░██▓▓▒▒▒▒▒▒▒▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓░░░░░░░░░░░░▓▓▓▓▓▓░░░░░░░░░░")
-        print("░░██▓▓▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██░░░░░░░░░░░░░░")
-        print("░░██▓▓▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▓▓▒▒▓▓▓▓▒▒▒▒▒▒░░▒▒▓▓▓▓▒▒██░░░░░░░░░░░░")
-        print("██▓▓▓▓▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓░░░░▓▓▒▒▒▒▒▒▓▓██░░░░░░░░░░")
-        print("██▓▓▓▓▓▓▓▓▒▒▒▒░░░░░░▒▒▒▒▒▒▒▒▓▓▓▓██░░▒▒██░░░░░░░░▓▓██░░░░░░░░")
-        print("██▒▒▓▓▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▒▒▒▒▒▒████████░░░░░░░░░░██░░░░░░░░")
-        print("██░░▒▒▒▒▒▒▒▒░░░░▒▒██████░░▒▒░░▒▒░░██░░░░██░░░░▒▒░░██░░░░░░░░")
-        print("██░░░░░░░░▒▒██████░░░░░░██░░░░░░░░▒▒██░░██▒▒▒▒░░░░██░░░░░░░░")
-        print("██░░░░░░░░████████░░░░░░██▒▒░░░░░░░░██░░░░████████░░░░░░░░░░")
-        print("██░░░░░░██░░░░░░░░░░░░░░░░██░░▒▒▒▒░░██░░░░░░░░░░░░░░░░░░░░░░")
-        print("░░██████░░░░░░░░░░░░░░░░░░██▒▒▒▒░░██░░░░░░░░░░░░░░░░░░░░░░░░")
-        print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░██████░░░░░░░░░░░░░░░░░░░░░░░░░░")
+        print(
+            """
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████░░░░░░░░
+░░░░░░██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████▓▓▓▓██░░░░
+░░░░██▒▒▒▒▒▒████████████░░░░░░░░░░████████████████▓▓▓▓██░░░░
+░░░░██▒▒▒▒▒▒████▓▓▓▓▓▓▓▓██████████▓▓▓▓▓▓▓▓▓▓████████▓▓██░░░░
+░░██▒▒▓▓▒▒▒▒████▓▓████▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓████▓▓██░░░░
+░░██▒▒▒▒▓▓██████▓▓████████▓▓▓▓▓▓▒▒▓▓▓▓▒▒▒▒▒▒▓▓▒▒▓▓██████░░░░
+██▓▓▒▒▒▒▒▒██░░████░░░░██████▓▓▓▓▒▒▒▒▓▓▓▓▒▒▒▒▓▓▒▒▒▒▓▓████░░░░
+██▒▒▓▓▓▓██░░░░████░░░░░░██████▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒████░░░░
+██▓▓▒▒▒▒██░░░░████░░░░░░░░████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██████░░░░
+██▒▒▓▓▓▓██░░░░░░████░░░░░░████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████████░░░░
+██▓▓▒▒▒▒██░░░░░░██████░░██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████▒▒██░░░░
+██▓▓▓▓▓▓██░░░░░░░░████████▒▒▒▒▒▒▓▓████▒▒▒▒▒▒▒▒▒▒░░██░░██░░░░
+██▓▓▒▒▒▒▒▒██░░░░░░████▓▓▓▓▒▒▒▒▓▓████████▒▒░░░░▒▒████░░██████
+██▒▒▒▒▓▓▓▓▓▓████████▓▓▓▓▒▒▒▒▒▒██▒▒██████▒▒░░░░░░▓▓▓▓░░░░▓▓░░
+░░██▓▓▓▓▓▓████▒▒▓▓██▒▒▒▒▒▒▒▒░░▒▒░░░░████▒▒░░░░░░░░░░▓▓██████
+░░██▓▓▓▓██▓▓▓▓▓▓▒▒██▓▓▓▓▓▓▒▒░░░░░░██████░░░░▒▒▒▒░░░░░░▓▓░░░░
+░░░░████▓▓▓▓▓▓▒▒▒▒██▓▓▒▒▒▒████▒▒░░▓▓▓▓░░░░░░████░░░░░░▓▓░░░░
+░░░░██▒▒▓▓▓▓▒▒▒▒▓▓▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░▓▓░░░░░░
+░░██▓▓▒▒▓▓▒▒▒▒▓▓▓▓▒▒▒▒▒▒▒▒▓▓████▓▓░░░░░░░░░░░░░░░░▓▓░░░░░░░░
+░░██▓▓▒▒▒▒▒▒▒▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓░░░░░░░░░░░░▓▓▓▓▓▓░░░░░░░░░░
+░░██▓▓▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██░░░░░░░░░░░░░░
+░░██▓▓▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▓▓▒▒▓▓▓▓▒▒▒▒▒▒░░▒▒▓▓▓▓▒▒██░░░░░░░░░░░░
+██▓▓▓▓▓▓▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓░░░░▓▓▒▒▒▒▒▒▓▓██░░░░░░░░░░
+██▓▓▓▓▓▓▓▓▒▒▒▒░░░░░░▒▒▒▒▒▒▒▒▓▓▓▓██░░▒▒██░░░░░░░░▓▓██░░░░░░░░
+██▒▒▓▓▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▒▒▒▒▒▒████████░░░░░░░░░░██░░░░░░░░
+██░░▒▒▒▒▒▒▒▒░░░░▒▒██████░░▒▒░░▒▒░░██░░░░██░░░░▒▒░░██░░░░░░░░
+██░░░░░░░░▒▒██████░░░░░░██░░░░░░░░▒▒██░░██▒▒▒▒░░░░██░░░░░░░░
+██░░░░░░░░████████░░░░░░██▒▒░░░░░░░░██░░░░████████░░░░░░░░░░
+██░░░░░░██░░░░░░░░░░░░░░░░██░░▒▒▒▒░░██░░░░░░░░░░░░░░░░░░░░░░
+░░██████░░░░░░░░░░░░░░░░░░██▒▒▒▒░░██░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░██████░░░░░░░░░░░░░░░░░░░░░░░░░░
+""")
 
     elif user_input == "sleep":
         print(py_cat['sleep'])
