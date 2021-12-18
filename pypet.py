@@ -126,7 +126,7 @@ while not terminate:
                     guessNum = trueNum
         elif game == "quiz":
             print("All right! Lets get started. Choose your genre!")
-            print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter (Case Sensitive)")
+            print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter, (Case Sensitive)")
             genre = input()
             points = 0
             if genre == "Adventure":
@@ -145,6 +145,8 @@ while not terminate:
                     if answerQ == "a":
                         print("You got it!")
                         points += 1
+                    elif answerQ == "b":
+                        print("Being friends with yourself? How lonely... Btw that's wrong.")
                     elif not answerQ == "a":
                         print("Oops. That's wrong.")
                     print("2nd question! How does Harry get his Scar?")
