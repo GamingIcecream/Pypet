@@ -93,7 +93,7 @@ while not terminate:
     elif user_input == "name":
         print("What do you want to name your cat?")
         print(py_cat['photo'])
-        py_cat['name'] = input()
+        py_cat['name'] = input().lower()
         print(py_cat['name'] + " learned its new name!")
     elif user_input == "help":
         print(
@@ -108,14 +108,14 @@ while not terminate:
             number = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
             print("I am thinking of a number 1-10. Guess what it is! You have 3 tries.")
             trueNum = random.choice(number)
-            guessNum = input()
+            guessNum = input().lower()
             if guessNum == trueNum:
                 print("You got it! Lets play again later.")
                 py_cat['hungry'] = True
             while not guessNum == trueNum:
                 tries = tries + 1
                 print("Nope, thats not it, try again.")
-                guessNum = input()
+                guessNum = input().lower()
                 py_cat['happy'] = py_cat['happy'] - 10
                 if guessNum == trueNum:
                     print("You got it! Lets play again later.")
@@ -126,22 +126,22 @@ while not terminate:
                     guessNum = trueNum
         elif game == "quiz":
             print("All right! Lets get started. Choose your genre!")
-            print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter, (Case Sensitive)")
-            genre = input()
+            print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter, (Not Case Sensitive)")
+            genre = input().lower().lower()
             points = 0
-            if genre == "Adventure":
+            if genre == "adventure":
                 print("Coming soon.")
-            if genre == "Marvel":
+            if genre == "marvel":
                 print("Coming soon.")
-            if genre == "Harry Potter":
+            if genre == "harry potter":
                 print("Coming soon")
                 print("For experimental usage, type 'xp' below. If you want to go back, just hit [Enter]. ")
-                if input() == "xp":
+                if input().lower().lower() == "xp":
                     print("1st question! Who are Harry Potter's Friends?")
                     print("a.) Ron, Malfoy, Hermione")
                     print("b.) Ron, Hermione, Harry Potter")
                     print("c.) Ron, Hermione")
-                    answerQ = input()
+                    answerQ = input().lower()
                     if answerQ == "a":
                         print("You got it!")
                         points += 1
@@ -153,7 +153,7 @@ while not terminate:
                     print("a.) Because he just was born w/ it. ")
                     print("b.) Because Voldemort hit him")
                     print("c.) b/c He who must not be name cursed him")
-                    answerQ = input()
+                    answerQ = input().lower()
                     if answerQ == "c":
                         print("Great! A point for you.")
                         points += 1
@@ -163,7 +163,7 @@ while not terminate:
                     print("a.) Ravenclaw")
                     print("b.) Hufflepuff")
                     print("c.) Slytherin")
-                    answerQ = input()
+                    answerQ = input().lower()
                     if answerQ == "c":
                         print("Amazing! You got a point.")
                         points += 1
@@ -173,7 +173,7 @@ while not terminate:
                     if points == 3:
                         py_cat['happy'] = py_cat['happy'] + 30
 
-            if genre == "(Case Sensitive)":
+            if genre == "(Not Case Sensitive)":
                 print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
                 py_cat['happy'] = py_cat['happy'] + 5
             if genre == "Star Wars":
@@ -182,7 +182,7 @@ while not terminate:
                 print("a.) Luke Skywalker")
                 print("b.) Han Solo")
                 print("c.) Rey (Palpatine?) ")
-                answerQ = input()
+                answerQ = input().lower()
                 if answerQ == "a":
                     print("You got it!")
                     points = points + 1
@@ -192,7 +192,7 @@ while not terminate:
                 print("a.) Shoot it")
                 print("b.) Turn it in")
                 print("c.) Take it away and go into hiding. ")
-                answerQ = input()
+                answerQ = input().lower()
                 if answerQ == "b":
                     print("Correct! A point for you.")
                     points = points + 1
@@ -202,7 +202,7 @@ while not terminate:
                 print("a.) Red")
                 print("b.) Yellow")
                 print("c.) Green")
-                answerQ = input()
+                answerQ = input().lower()
                 if answerQ == "b":
                     print("Nice job! Points points points.")
                     points = points + 1
