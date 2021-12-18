@@ -1,5 +1,6 @@
 import random
 from time import sleep
+
 py_cat = {
     'photo': '(=^●.●^=)__',
     'full': '(=^x.x^=)__',
@@ -11,8 +12,8 @@ py_cat = {
     'age': 1,
     'weight': 5.7,
     'hungry': True,
-    'phrases': ["Purrr", "*lick* *lick*", "Meow! Mew!"],
-    'petPhrase': ["Purrrrrr", "*Snuggle *Snuggle", "*lick meeew", "Mew! Mew!", "*mew meow"],
+    'phrases': ["Purrr", "*lick* *lick*", "Meow! Mew!", 'So you expected me to say "meow," huh?'],
+    'petPhrase': ["Purrrrrr", "*Snuggle *Snuggle", "*lick meeew", "Mew! Mew!", "*mew meow", "Thank you."],
     'happy': 50
 }
 py_mouse = {
@@ -21,10 +22,12 @@ py_mouse = {
     'age': 3,
     'weight': 0.98,
     'hungry': False,
-    'phrases': ["SqueK!", "*nibble *nibble", "*Squeek SQUEEK"],
+    'phrases': ["SqueK!", "*nibble *nibble", "*Squeek SQUEEK", "Squeak."],
     'sleep': '‹|3 )~~~~',
     'happy': 100
 }
+
+
 # photo = "(=^o.o^=)__"
 # name = "Mochi"
 # age = 5
@@ -34,38 +37,40 @@ py_mouse = {
 
 
 def startup_pypet():
-    print ("Welcome to Pypet")
-    print ("Hello, it's " + py_cat['name'])
-    print (py_cat['photo'])
+    print("Welcome to Pypet")
+    print("Hello, it's " + py_cat['name'])
+    print(py_cat['photo'])
+
 
 def pypet_stats():
-    if py_cat ['age'] <= 0:
+    if py_cat['age'] <= 0:
         print(py_cat["zeroage"])
-    elif py_cat ['happy'] <= 0:
+    elif py_cat['happy'] <= 0:
         print(py_cat['angry'])
     elif py_cat['happy'] <= 50:
-        print (py_cat['photo'])
+        print(py_cat['photo'])
     elif py_cat['happy'] <= 99:
         print(py_cat['photo'])
     elif py_cat['happy'] >= 100:
-        print(py_cat['sleep'])   
+        print(py_cat['sleep'])
 
-    print (py_cat['name'] + " weighs " + str(py_cat['weight']) + " pounds ")
-    print (py_cat['name'] + " is " + str(py_cat['age']) + " years old")
-    print (py_cat['name'] + " has a happiness level of " + str(py_cat['happy']))
+    print(py_cat['name'] + " weighs " + str(py_cat['weight']) + " pounds ")
+    print(py_cat['name'] + " is " + str(py_cat['age']) + " years old")
+    print(py_cat['name'] + " has a happiness level of " + str(py_cat['happy']))
 
     if py_cat['hungry']:
-        print ("Your pypet is hungry!")
+        print("Your pypet is hungry!")
     else:
-      print ("Your pypet *BURPS* loudly")
-    
+        print("Your pypet *BURPS* loudly")
+
+
 startup_pypet()
 # pypet_stats()
 
 terminate = False
 sleepNum = 0
 while not terminate:
-    print ("#####################################")
+    print("#####################################")
 
     user_input = input('> ')
 
@@ -75,23 +80,24 @@ while not terminate:
         pypet_stats()
     elif user_input == "feed":
         if py_cat['hungry']:
-          print ("Om Nom Nom")
-          py_cat['weight'] = py_cat['weight'] + 1.5
-          py_cat['hungry'] = False
-          py_cat['happy'] = 100
+            print("Om Nom Nom")
+            py_cat['weight'] = py_cat['weight'] + 1.5
+            py_cat['hungry'] = False
+            py_cat['happy'] = 100
         else:
             print(py_cat['full'])
             print("TOO full... *BURP* ...")
             py_cat['happy'] = py_cat['happy'] - 5
     elif user_input == "chat":
-        print (random.choice(py_cat['phrases']))
+        print(random.choice(py_cat['phrases']))
     elif user_input == "name":
-        print ("What do you want to name your cat?")
-        print (py_cat['photo'])
+        print("What do you want to name your cat?")
+        print(py_cat['photo'])
         py_cat['name'] = input()
         print(py_cat['name'] + " learned its new name!")
     elif user_input == "help":
-        print("You can use the [stats, feed, chat, name, quit, help, sleep, play, view] commands to do things with your pypet!")
+        print(
+            "You can use the [stats, feed, chat, name, quit, help, sleep, play, view] commands to do things with your pypet!")
     elif user_input == "play":
         print(py_cat['photo'])
         print("Its time to play! Want to play [guess the number, quiz]?")
@@ -99,7 +105,7 @@ while not terminate:
         if game == "guess the number":
             tries = 1
             print("Lets play guess the number!")
-            number = ['1','2','3','4','5','6','7','8','9','10']
+            number = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
             print("I am thinking of a number 1-10. Guess what it is! You have 3 tries.")
             trueNum = random.choice(number)
             guessNum = input()
@@ -164,12 +170,13 @@ while not terminate:
                     print("You got " + str(points) + " points!")
                     if points == 3:
                         py_cat['happy'] = py_cat['happy'] + 30
-                    
+
             if genre == "(Case Sensitive)":
                 print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
                 py_cat['happy'] = py_cat['happy'] + 5
             if genre == "Star Wars":
-                print("1st question! Who is the main character in the original star wars trilogy? (Just put the letter. Ex. 'b'. ")
+                print(
+                    "1st question! Who is the main character in the original star wars trilogy? (Just put the letter. Ex. 'b'. ")
                 print("a.) Luke Skywalker")
                 print("b.) Han Solo")
                 print("c.) Rey (Palpatine?) ")
@@ -205,7 +212,7 @@ while not terminate:
                     py_cat['happy'] = py_cat['happy'] + 30
 
 
-            
+
     elif user_input == "view":
         print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████░░░░░░░░")
         print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██▓▓▓▓██░░░░░░")
@@ -242,11 +249,11 @@ while not terminate:
         print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░██████░░░░░░░░░░░░░░░░░░░░░░░░░░")
 
     elif user_input == "sleep":
-        print (py_cat['sleep'])
-        print ("Zzzzz...")
+        print(py_cat['sleep'])
+        print("Zzzzz...")
         sleep(1)
-        print (py_cat['photo'])
-        print ("Yawn!!")
+        print(py_cat['photo'])
+        print("Yawn!!")
         py_cat['hungry'] = True
         sleepNum += 1
         print(sleepNum)
@@ -257,7 +264,7 @@ while not terminate:
             print(py_cat['name'] + " grew up!")
     elif user_input == "pet":
         print(py_cat['photo'])
-        print (random.choice(py_cat['petPhrase']))
+        print(random.choice(py_cat['petPhrase']))
     elif user_input == "sudo unfeed":
         print("You fed your cat poison. It's now barfing. ")
         print(py_cat['full'])
@@ -274,11 +281,11 @@ while not terminate:
         print(py_cat["knowing"])
         print("Hello, human being. Good to know that you can speak to me. MEOW.")
     elif user_input == "sudo mouse sleep":
-        print (py_mouse['sleep'])
-        print ("Zzzzz...")
+        print(py_mouse['sleep'])
+        print("Zzzzz...")
         sleep(3)
-        print (py_mouse['photo'])
-        print ("Yawn!!")
+        print(py_mouse['photo'])
+        print("Yawn!!")
         py_mouse['hungry'] = True
         sleepNum += 1
         # print(sleepNum)
@@ -312,7 +319,6 @@ while not terminate:
         print(py_cat['name'] + " is mad.")
         print("FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
     else:
-        print ("Sorry, I don't understand")
-    
-    
-print ("Goodbye!")
+        print("Sorry, I don't understand")
+
+print("Goodbye!")

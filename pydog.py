@@ -1,3 +1,4 @@
+import asyncio
 data = {
     'name': str("Ace"),
     'happiness': 0,
@@ -5,14 +6,23 @@ data = {
     'normal': "υ´•ﻌ•`υ",
     'peace': "u´˘ﻌ˘`u",
 }
+time = 0
+
+async def waitwalk():
+    while True:
+        await asyncio.sleep(1)
+        time += 1
+
 print("Ace is sitting at your feet. " + data['normal'])
 while True:
     if data['happiness'] <= 0:
         data['hungry'] = True
-        print()
+        print("WAN! FOOD!")
     else:
         data['hungry'] = False
     match input("> "):
+        case "feed":
+            print("You feed " + data['name'] + " some dog food. They wag their tail happily.")
         case "stats":
             print("")
         case "name":
