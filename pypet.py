@@ -325,7 +325,9 @@ while not terminate:
     elif py_cat['happy'] <= 0:
         print(py_cat['name'] + " is mad.")
         print("FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
+    elif user_input == "helpme":
+        print(py_cat['name'] + " cannot help you. But the \"help\" command can!")
     else:
-        print("Sorry, I don't understand")
+        print("Sorry, I don't understand \"" + user_input + "\", type \"help\" for help.")
 
 print("Goodbye!")
