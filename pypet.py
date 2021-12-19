@@ -102,7 +102,7 @@ while not terminate:
         print(py_cat['photo'])
         print("Its time to play! Want to play [guess the number (gtm), quiz (q)]?")
         game = input('> ')
-        if game == "guess the number" or "gtm":
+        if game == "guess the number" or  "gtm":
             tries = 1
             print("Lets play guess the number!")
             number = random.randrange(1, 10)
@@ -124,7 +124,7 @@ while not terminate:
                     print("Your tries are up! The correct answer was: " + number)
                     py_cat['hungry'] = True
                     guessNum = number
-        elif game == "quiz" or "q":
+        elif game == "quiz" or game == "q":
             print("All right! Lets get started. Choose your genre!")
             print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter, (Not Case Sensitive)")
             genre = input().lower()
@@ -169,9 +169,9 @@ while not terminate:
                         points += 1
                     elif not answerQ == "c":
                         print("You gave it your best shot. Incorrect answer.")
-                    print("You got " + str(points) + " points!")
+                    print(f"You got {str(points)} points!")
                     if points == 3:
-                        py_cat['happy'] = py_cat['happy'] + 30
+                        py_cat['happy'] += 30
 
             if genre == "(not case sensitive)":
                 print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
@@ -188,7 +188,7 @@ while not terminate:
                     points = points + 1
                 elif not answerQ == "a":
                     print("That's the wrong answer.")
-                print("2nd question! What does the Mandolorian decide to do right after finding the Child.")
+                print("2nd question! What does the Mandalorian decide to do right after finding the Child.")
                 print("a.) Shoot it")
                 print("b.) Turn it in")
                 print("c.) Take it away and go into hiding. ")
@@ -214,8 +214,6 @@ while not terminate:
                     py_cat['happy'] = py_cat['happy'] + 30
             else:
                 print("That isn't a genre.")
-
-
 
     elif user_input == "view":
         print(
@@ -300,7 +298,7 @@ while not terminate:
         if sleepNum == 10:
             py_mouse['age'] = py_mouse['age'] + 1
             sleepNum = 0
-            print(py_mouse['name'] + " grew up!")
+            print(f"{py_mouse['name']} grew up!")
     elif user_input == "sudo debug(happy)":
         print("//Welcome to the debug console. You are debugging happiness. Set the value of happiness below.")
         py_cat["happy"] = int(input('>>> '))
