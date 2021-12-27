@@ -72,7 +72,7 @@ sleepNum = 0
 while not terminate:
     print("#####################################")
 
-    user_input = input('> ')
+    user_input = input('> ').lower() #I THINK THIS IS THE PROBLEM
 
     if user_input == "quit":
         terminate = True
@@ -101,8 +101,9 @@ while not terminate:
     elif user_input == "play":
         print(py_cat['photo'])
         print("Its time to play! Want to play [guess the number (gtm), quiz (q)]?")
-        game = input('> ')
-        if game == "guess the number" or  "gtm":
+        game = input().lower() #Maybe this as well....
+        if game == "guess the number" or game == "gtm":  #I THINK I FOUND IT 
+        # if game == "guess the number":
             tries = 1
             print("Lets play guess the number!")
             number = random.randrange(1, 10)
@@ -125,18 +126,19 @@ while not terminate:
                     py_cat['hungry'] = True
                     guessNum = number
         elif game == "quiz" or game == "q":
+        # if game == "quiz":
             print("All right! Lets get started. Choose your genre!")
             print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter, (Not Case Sensitive)")
             genre = input().lower()
             points = 0
             if genre == "adventure":
                 print("Coming soon.")
-            if genre == "marvel":
+            elif genre == "marvel":
                 print("Coming soon.")
-            if genre == "harry potter":
+            elif genre == "harry potter":
                 print("Coming soon.")
                 print("For experimental usage, type 'xp' below. If you want to go back, just hit [Enter]. ")
-                if input().lower().lower() == "xp":
+                if input().lower() == "xp": #Ummm...Why are there two  .lower() ???
                     print("1st question! Who are Harry Potter's Friends?")
                     print("a.) Ron, Malfoy, Hermione")
                     print("b.) Ron, Hermione, Harry Potter")
@@ -173,10 +175,10 @@ while not terminate:
                     if points == 3:
                         py_cat['happy'] += 30
 
-            if genre == "(not case sensitive)":
+            elif genre == "(not case sensitive)":
                 print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
                 py_cat['happy'] += 5
-            if genre == "Star Wars":
+            elif genre == "Star Wars":
                 print(
                     "1st question! Who is the main character in the original star wars trilogy? (Choose a letter, ex: a, b, or c)")
                 print("a.) Luke Skywalker")
