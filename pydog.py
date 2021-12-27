@@ -13,7 +13,7 @@ async def waitwalk():
         await asyncio.sleep(1)
         time += 1
 
-print("Ace is sitting at your feet. " + data['normal'])
+print(data['name'] + " is sitting at your feet. " + data['normal'])
 while True:
     if data['happiness'] <= 0:
         data['hungry'] = True
