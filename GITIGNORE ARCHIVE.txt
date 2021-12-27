@@ -1,5 +1,4 @@
-For now, I am fine with __pycahe__ being in the program. The .gitignore actually got rid of the .exe. So here is the archive of it, but I don't think we need. it
-
+For now, I am fine with __pycahe__ and build and .vscode being in the program. The .gitignore actually got rid of the .exe. So here is the archive of it, but I don't think we need it
 
 +++++++++++++++++++++++
 
