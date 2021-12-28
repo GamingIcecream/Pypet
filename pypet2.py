@@ -49,17 +49,31 @@ def pypet_stats():
 
 startup_pypet()
 
+def hunger():
+    # while not terminate:
+    while True:
+        while not py_cat['hungry']:
+            if py_cat['hungry'] == False:
+                print("not hungry")
+                sleep(1)
+                py_cat['hungry'] = True
+if __name__ == '__main__':
+    # proc1 = Process(target=usrgui)
+    # proc1.start()
+
+    proc1 = Process(target=hunger)
+    proc1.start()
 
 # pypet_stats()
 
 # terminate = False
 
-def usrgui():
+# def usrgui():
     # while not terminate:
     while True:
         print("#####################################")
 
-        user_input = input('> ')
+        user_input = input()
 
         if user_input == "quit":
             #   terminate = True
@@ -74,23 +88,4 @@ def usrgui():
             print(random.choice(py_cat['phrases']))
         else:
             print("Sorry, I don't understand")
-
-
-def hunger():
-    # while not terminate:
-    while True:
-        while not py_cat['hungry']:
-            if py_cat['hungry'] == False:
-                print("not hungry")
-                sleep(1)
-                py_cat['hungry'] = True
-
-
-if __name__ == '__main__':
-    proc1 = Process(target=usrgui)
-    proc1.start()
-
-    proc2 = Process(target=hunger)
-    proc2.start()
-
 print("Goodbye!")
