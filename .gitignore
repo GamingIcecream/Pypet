@@ -1,4 +1,6 @@
 /build/
+/build/pypet
 *.spec
 /.idea/
 /.vscode/
+/__pycache__
