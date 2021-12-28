@@ -27,7 +27,6 @@ py_mouse = {
     'happy': 100
 }
 
-
 # photo = "(=^o.o^=)__"
 # name = "Mochi"
 # age = 5
@@ -65,10 +64,13 @@ def pypet_stats():
 
 
 startup_pypet()
+
+speckUnlock = False
 # pypet_stats()
 
 terminate = False
 sleepNum = 0
+MsleepNum = 0
 while not terminate:
     print("#####################################")
 
@@ -93,7 +95,7 @@ while not terminate:
     elif user_input == "name":
         print("What do you want to name your cat?")
         print(py_cat['photo'])
-        py_cat['name'] = input().lower()
+        py_cat['name'] = input('> ').lower()
         print(py_cat['name'] + " learned its new name!")
     elif user_input == "help":
         print(
@@ -101,21 +103,21 @@ while not terminate:
     elif user_input == "play":
         print(py_cat['photo'])
         print("Its time to play! Want to play [guess the number (gtm), quiz (q)]?")
-        game = input().lower() #Maybe this as well....
+        game = input('> ').lower() #Maybe this as well....
         if game == "guess the number" or game == "gtm":  #I THINK I FOUND IT 
         # if game == "guess the number":
             tries = 1
             print("Lets play guess the number!")
             number = random.randrange(1, 10)
             print("I am thinking of a number 1-10. Guess what it is! You have 3 tries.")
-            guessNum = input().lower()
+            guessNum = input('> ').lower()
             if guessNum == number:
                 print("You got it! Lets play again later.")
                 py_cat['hungry'] = True
             while not guessNum == number:
                 tries = tries + 1
                 print("Nope, thats not it, try again.")
-                guessNum = input().lower()
+                guessNum = input('> ').lower()
                 py_cat['happy'] = py_cat['happy'] - 10
                 if guessNum == number:
                     print("You got it! Lets play again later.")
@@ -129,7 +131,7 @@ while not terminate:
         # if game == "quiz":
             print("All right! Lets get started. Choose your genre!")
             print("The genre options are: Adventure, Marvel, Star Wars, Harry Potter, (Not Case Sensitive)")
-            genre = input().lower()
+            genre = input('> ').lower()
             points = 0
             if genre == "adventure":
                 print("Coming soon.")
@@ -138,24 +140,24 @@ while not terminate:
             elif genre == "harry potter":
                 print("Coming soon.")
                 print("For experimental usage, type 'xp' below. If you want to go back, just hit [Enter]. ")
-                if input().lower() == "xp": #Ummm...Why are there two  .lower() ???
+                if input('> ').lower() == "xp": #Ummm...Why are there two  .lower() ???
                     print("1st question! Who are Harry Potter's Friends?")
                     print("a.) Ron, Malfoy, Hermione")
                     print("b.) Ron, Hermione, Harry Potter")
                     print("c.) Ron, Hermione")
-                    answerQ = input().lower()
-                    if answerQ == "a":
+                    answerQ = input('> ').lower()
+                    if answerQ == "c":
                         print("You got it!")
                         points += 1
                     elif answerQ == "b":
                         print("Being friends with yourself? How lonely... Btw that's wrong.")
-                    elif not answerQ == "a":
+                    elif not answerQ == "c":
                         print("Oops. That's wrong.")
                     print("2nd question! How does Harry get his Scar?")
                     print("a.) Because he just was born w/ it. ")
                     print("b.) Because Voldemort hit him")
                     print("c.) b/c He who must not be name cursed him")
-                    answerQ = input().lower()
+                    answerQ = input('> ').lower()
                     if answerQ == "c":
                         print("Great! A point for you.")
                         points += 1
@@ -165,7 +167,7 @@ while not terminate:
                     print("a.) Ravenclaw")
                     print("b.) Hufflepuff")
                     print("c.) Slytherin")
-                    answerQ = input().lower()
+                    answerQ = input('> ').lower()
                     if answerQ == "c":
                         print("Amazing! You got a point.")
                         points += 1
@@ -279,7 +281,9 @@ while not terminate:
         py_cat['happy'] = py_cat['happy'] - 100
         py_cat['hungry'] = True
     elif user_input == "sudo mouse":
-        print("You unlocked Squuek!")
+        if speckUnlock == False:
+            print("You unlocked " + py_mouse['name'] + " !")
+            speckUnlock == True
         print(py_mouse['photo'])
         print(py_mouse['name'])
         print(py_mouse['age'])
@@ -294,12 +298,12 @@ while not terminate:
         print(py_mouse['photo'])
         print("Yawn!!")
         py_mouse['hungry'] = True
-        sleepNum += 1
+        MsleepNum += 1
         # print(sleepNum)
         py_mouse['happy'] = py_mouse['happy'] - 10
-        if sleepNum == 10:
+        if MsleepNum == 10:
             py_mouse['age'] = py_mouse['age'] + 1
-            sleepNum = 0
+            MsleepNum = 0
             print(f"{py_mouse['name']} grew up!")
     elif user_input == "sudo debug(happy)":
         print("//Welcome to the debug console. You are debugging happiness. Set the value of happiness below.")
