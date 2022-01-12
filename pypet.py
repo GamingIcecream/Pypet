@@ -141,8 +141,10 @@ while not terminate:
             points = 0
             if genre == "adventure":
                 print("Coming soon.")
+                print("#Hopefully_something_cool.")
             elif genre == "marvel":
                 print("Coming soon.")
+                print("#Waiting_for_Shang-Shi_2!_Lol...")
             elif genre == "harry potter":
                 print("Coming soon.")
                 print("For experimental usage, type 'xp' below. If you want to go back, just hit [Enter]. ")
