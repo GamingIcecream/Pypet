@@ -226,7 +226,6 @@ while not terminate:
                     py_cat['happy'] = py_cat['happy'] + 30
             else:
                 print("That isn't a genre.")
-
     elif user_input == "view":
         print(
             """
@@ -377,6 +376,8 @@ while not terminate:
         print("FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
     elif user_input == "helpme":
         print(py_cat['name'] + " cannot help you. But the \"help\" command can!")
+    elif user_input == "asdfghjklqwertyuiopzxcvbnm":
+        print("You are bored.")
     else:
         print("Sorry, I don't understand \"" + user_input + "\", type \"help\" for help.")
 
