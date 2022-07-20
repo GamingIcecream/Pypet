@@ -1,4 +1,5 @@
 import random
+import os
 from time import sleep
 
 py_cat = {
@@ -40,6 +41,8 @@ py_duck = {
 # hungry = True
 # phrases = ["Purrr", "*lick* *lick*", "Meow! Mew!"]
 
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
 
 def startup_pypet():
     print("Welcome to Pypet")
@@ -70,24 +73,30 @@ def pypet_stats():
         print("Your pypet *BURPS* loudly")
 
 
-startup_pypet()
+# startup_pypet()
 
 speckUnlock = False
 # pypet_stats()
-
+firstSetup = 0
 terminate = False
 sleepNum = 0
 MsleepNum = 0
 while not terminate:
-    print("#####################################")
+    firstSetup+= 1
+    if firstSetup == 1:
+        startup_pypet()
+    else:
+        print("#####################################")
 
     user_input=input('> ').lower()
 
     if user_input == "quit":
         terminate = True
     elif user_input == "stats":
+        cls()
         pypet_stats()
     elif user_input == "feed":
+        cls()
         if py_cat['hungry']:
             print("Om Nom Nom")
             py_cat['weight'] = py_cat['weight'] + 1.5
@@ -98,16 +107,20 @@ while not terminate:
             print("TOO full... *BURP* ...")
             py_cat['happy'] = py_cat['happy'] - 5
     elif user_input == "chat":
+        cls()
         print(random.choice(py_cat['phrases']))
     elif user_input == "name":
+        cls()
         print("What do you want to name your cat?")
         print(py_cat['photo'])
         py_cat['name'] = input('> ')
         print(py_cat['name'] + " learned its new name!")
     elif user_input == "help":
+        cls()
         print(
             "You can use the [stats, feed, chat, name, quit, help, sleep, play, view] commands to do things with your pypet!")
     elif user_input == "play":
+        cls()
         print(py_cat['photo'])
         print("Its time to play! Want to play [guess the number (gtm), quiz (q)]?")
         game = input('> ').lower()
@@ -121,6 +134,7 @@ while not terminate:
             if guessNum == number:
                 print("You got it! Lets play again later.")
                 py_cat['hungry'] = True
+                py_cat['happy'] += 10
             while not guessNum == number:
                 tries = tries + 1
                 print("Nope, thats not it, try again.")
@@ -131,7 +145,12 @@ while not terminate:
                     py_cat['hungry'] = True
                     py_cat['weight'] = py_cat['weight'] - 0.4
                 if tries == 3:
-                    print("Your tries are up! The correct answer was: " + str(number))
+                    if guessNum == number:
+                        print("You got it! Lets play again later.")
+                        py_cat['hungry'] = True
+                        py_cat['happy'] += 10
+                    else:
+                        print("Your tries are up! The correct answer was: " + str(number))
                     py_cat['hungry'] = True
                     guessNum = number
         elif game == "quiz" or game == "q":
@@ -230,6 +249,7 @@ while not terminate:
             else:
                 print("That isn't a genre.")
     elif user_input == "view":
+        cls()
         print(
             """
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████░░░░░░░░
@@ -267,6 +287,7 @@ while not terminate:
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░██████░░░░░░░░░░░░░░░░░░░░░░░░░░
 """)
     elif user_input == "view duck":
+        cls()
         print("""
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -302,33 +323,39 @@ while not terminate:
         """)
 
     elif user_input == "sleep":
+        cls()
         print(py_cat['sleep'])
         print("Zzzzz...")
         sleep(1)
+        cls()
         print(py_cat['photo'])
         print("Yawn!!")
         py_cat['hungry'] = True
         sleepNum += 1
-        print(sleepNum)
+        # print(sleepNum)
         py_cat['happy'] = py_cat['happy'] - 10
         if sleepNum == 10:
             py_cat['age'] = py_cat['age'] + 1
             sleepNum = 0
             print(py_cat['name'] + " grew up!")
     elif user_input == 'duck':
+        cls()
         print(py_duck['photo'])
         print("Your duck is " + str(py_duck['age']) + " years old.")
         print("Your duck's name is " + py_duck['name'])
     elif user_input == "pet":
+        cls()
         print(py_cat['photo'])
         print(random.choice(py_cat['petPhrase']))
     elif user_input == "sudo unfeed":
+        cls()
         print("You fed your cat poison. It's now barfing. ")
         print(py_cat['full'])
         print("*BARF *Cry *Barf MEOOOOOOOOW ooooowwwww")
         py_cat['happy'] = py_cat['happy'] - 100
         py_cat['hungry'] = True
     elif user_input == "sudo mouse":
+        cls()
         if speckUnlock == False:
             print("You unlocked " + py_mouse['name'] + " !")
             speckUnlock == True
@@ -337,9 +364,11 @@ while not terminate:
         print(py_mouse['age'])
         print(py_mouse['weight'])
     elif user_input == "meow":
+        cls()
         print(py_cat["knowing"])
         print("Hello, human being. Good to know that you can speak to me. MEOW.")
     elif user_input == "sudo mouse sleep":
+        cls()
         print(py_mouse['sleep'])
         print("Zzzzz...")
         sleep(3)
@@ -354,15 +383,19 @@ while not terminate:
             MsleepNum = 0
             print(f"{py_mouse['name']} grew up!")
     elif user_input == "sudo debug(happy)":
+        cls()
         print("//Welcome to the debug console. You are debugging happiness. Set the value of happiness below.")
         py_cat["happy"] = int(input('>>> '))
     elif user_input == "sudo debug(age)":
+        cls()
         print("//Welcome to the debug console. You are debugging age. Set the value of age below.")
         py_cat['age'] = int(input('>>> '))
     elif user_input == "sudo debug(weight)":
+        cls()
         print("//Welcome to the debug console. You are debugging weight. Set the value of weight below.")
         py_cat['weight'] = int(input('>>> '))
     elif user_input == "sudo debug()":
+        cls()
         print("//Welcome to the debug console. Choose a debugging option. [happy, age, weight]")
         debugOpt = input('>>> ')
         if debugOpt == "happy":
@@ -375,11 +408,14 @@ while not terminate:
             print("//Welcome to the debug console. You are debugging weight. Set the value of weight below.")
             py_cat['weight'] = int(input('>>> '))
     elif py_cat['happy'] <= 0:
+        cls()
         print(py_cat['name'] + " is mad.")
         print("FEED ME! MEOW MEOW MEOW. FOOOOOD FOOOOOD FOOOOD, *cry, Foood........")
     elif user_input == "helpme":
+        cls()
         print(py_cat['name'] + " cannot help you. But the \"help\" command can!")
     elif user_input == "asdfghjklqwertyuiopzxcvbnm":
+        cls()
         print("You are bored.")
     else:
         print("Sorry, I don't understand \"" + user_input + "\", type \"help\" for help.")
