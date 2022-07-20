@@ -1,0 +1,2 @@
+# Pypet
+This is a program I made that is a virtual pet in python! Keep this program running in the background while you work, and play with it and feed it when its hungry. Take care of your pypet until you close your pypet window. This version can be run on Linux/MacOS/Windows if you run the pypet.py file, otherwise the only compiled version of this program is only available for Windows 7 and up. Please make sure you have python 3.0 installed, else this program will not work properly. Install python from https://www.python.org/downloads/. 
