@@ -142,8 +142,8 @@ while not terminate:
                 else:
                     tries = tries + 1
                     print("Nope, thats not it, try again.")
-                    print("n"+ str(guessNum) + "n")
-                    print("n"+ str(number) + "n")
+                    # print("n"+ str(guessNum) + "n")
+                    # print("n"+ str(number) + "n"
                     py_cat['happy'] = py_cat['happy'] - 10
                     # if guessNum == number:
                     #     print("You got it! Lets play again later.")
