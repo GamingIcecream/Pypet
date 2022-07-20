@@ -44,6 +44,7 @@ py_duck = {
 def startup_pypet():
     print("Welcome to Pypet")
     print("Hello, it's " + py_cat['name'])
+    print("Use 'help' to show commands.")
     print(py_cat['photo'])
 
 
@@ -80,7 +81,7 @@ MsleepNum = 0
 while not terminate:
     print("#####################################")
 
-    user_input = input('> ').lower() #I THINK THIS IS THE PROBLEM
+    user_input=input('> ').lower()
 
     if user_input == "quit":
         terminate = True
@@ -101,7 +102,7 @@ while not terminate:
     elif user_input == "name":
         print("What do you want to name your cat?")
         print(py_cat['photo'])
-        py_cat['name'] = input('> ').lower()
+        py_cat['name'] = input('> ')
         print(py_cat['name'] + " learned its new name!")
     elif user_input == "help":
         print(
@@ -109,8 +110,8 @@ while not terminate:
     elif user_input == "play":
         print(py_cat['photo'])
         print("Its time to play! Want to play [guess the number (gtm), quiz (q)]?")
-        game = input('> ').lower() #Maybe this as well....
-        if game == "guess the number" or game == "gtm":  #I THINK I FOUND IT 
+        game = input('> ').lower()
+        if game == "guess the number" or game == "gtm":
         # if game == "guess the number":
             tries = 1
             print("Lets play guess the number!")
@@ -148,7 +149,7 @@ while not terminate:
             elif genre == "harry potter":
                 print("Coming soon.")
                 print("For experimental usage, type 'xp' below. If you want to go back, just hit [Enter]. ")
-                if input('> ').lower() == "xp": #Ummm...Why are there two  .lower() ???
+                if input('> ').lower() == "xp":
                     print("1st question! Who are Harry Potter's Friends?")
                     print("a.) Ron, Malfoy, Hermione")
                     print("b.) Ron, Hermione, Harry Potter")
