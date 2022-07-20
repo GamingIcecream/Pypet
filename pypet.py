@@ -126,33 +126,38 @@ while not terminate:
         game = input('> ').lower()
         if game == "guess the number" or game == "gtm":
         # if game == "guess the number":
-            tries = 1
+            tries = 0
             print("Lets play guess the number!")
             number = random.randrange(1, 10)
             print("I am thinking of a number 1-10. Guess what it is! You have 3 tries.")
-            guessNum = input('> ').lower()
-            if guessNum == number:
-                print("You got it! Lets play again later.")
-                py_cat['hungry'] = True
-                py_cat['happy'] += 10
-            while not guessNum == number:
-                tries = tries + 1
-                print("Nope, thats not it, try again.")
-                guessNum = input('> ').lower()
-                py_cat['happy'] = py_cat['happy'] - 10
-                if guessNum == number:
+            # guessNum = input('> ').lower()
+            while tries<3:
+                # guessNum = input('> ')
+                guessNum = input('> ')
+                if guessNum == str(number):
                     print("You got it! Lets play again later.")
                     py_cat['hungry'] = True
-                    py_cat['weight'] = py_cat['weight'] - 0.4
-                if tries == 3:
-                    if guessNum == number:
-                        print("You got it! Lets play again later.")
-                        py_cat['hungry'] = True
-                        py_cat['happy'] += 10
-                    else:
-                        print("Your tries are up! The correct answer was: " + str(number))
-                    py_cat['hungry'] = True
-                    guessNum = number
+                    py_cat['happy'] += 10
+                    tries = 3
+                else:
+                    tries = tries + 1
+                    print("Nope, thats not it, try again.")
+                    print("n"+ str(guessNum) + "n")
+                    print("n"+ str(number) + "n")
+                    py_cat['happy'] = py_cat['happy'] - 10
+                    # if guessNum == number:
+                    #     print("You got it! Lets play again later.")
+                    #     py_cat['hungry'] = True
+                    #     py_cat['weight'] = py_cat['weight'] - 0.4
+                    # if tries == 3:
+                    #     if guessNum == number:
+                    #         print("You got it! Lets play again later.")
+                    #         py_cat['hungry'] = True
+                    #         py_cat['happy'] += 10
+                    #     else:
+                    #         print("hi")
+                    #     guessNum = number
+            print("The correct answer was " + str(number))
         elif game == "quiz" or game == "q":
         # if game == "quiz":
             print("All right! Lets get started. Choose your genre!")
