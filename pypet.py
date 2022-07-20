@@ -185,6 +185,8 @@ while not terminate:
                     print(f"You got {str(points)} points!")
                     if points == 3:
                         py_cat['happy'] += 30
+            elif genre == "star wars":
+                print("Coming Soon.")
 
             elif genre == "(not case sensitive)":
                 print("Lol! That's not a genre, but you tried it. Just for that you get some more happiness. ")
